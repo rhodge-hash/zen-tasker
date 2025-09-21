@@ -92,6 +92,42 @@
                 event.target.parentElement.remove();
             }
         });
+
+        taskList.addEventListener('dblclick', function(event) {
+            if (event.target.tagName === 'SPAN') {
+                const span = event.target;
+                const li = span.parentElement;
+                const currentText = span.textContent;
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.value = currentText;
+                li.insertBefore(input, span);
+                li.removeChild(span);
+                input.focus();
+
+                function saveTask() {
+                    const newText = input.value.trim();
+                    if (newText === '') {
+                        li.remove();
+                    } else {
+                        const newSpan = document.createElement('span');
+                        newSpan.textContent = newText;
+                        li.insertBefore(newSpan, input);
+                        li.removeChild(input);
+                    }
+                }
+
+                input.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        saveTask();
+                    }
+                });
+
+                input.addEventListener('blur', function() {
+                    saveTask();
+                });
+            }
+        });
     </script>
 </body>
 </html>
