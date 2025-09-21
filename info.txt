@@ -1,0 +1,52 @@
+                                   ███████╗██████╗ ███████╗ ██████╗██╗███████╗██╗   ██╗                                    
+                                    ██╔════╝██╔══██╗██╔════╝██╔════╝██║██╔════╝╚██╗ ██╔╝                                    
+                                    ███████╗██████╔╝█████╗  ██║     ██║█████╗   ╚████╔╝                                     
+                                    ╚════██║██╔═══╝ ██╔══╝  ██║     ██║██╔══╝    ╚██╔╝                                      
+                                    ███████║██║     ███████╗╚██████╗██║██║        ██║                                       
+                                    ╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝╚═╝        ╚═╝                                       
+                                                                                                                            
+                                     GitHub Spec Kit - Spec-Driven Development Toolkit                                      
+
+Warning: Current directory is not empty (1 items)
+Template files will be merged with existing content and may overwrite existing files
+Do you want to continue? [y/N]: y
+╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                          │
+│  Specify Project Setup                                                                                                   │
+│                                                                                                                          │
+│  Project         Playground                                                                                              │
+│  Working Path    /home/roy/Desktop/Playground                                                                            │
+│                                                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+Selected AI assistant: gemini
+Selected script type: sh
+Initialize Specify Project
+├── ● Check required tools (ok)
+├── ● Select AI assistant (gemini)
+├── ● Select script type (sh)
+├── ● Fetch latest release (release v0.0.48 (29,739 bytes))
+├── ● Download template (spec-kit-template-gemini-sh-v0.0.48.zip)
+├── ● Extract template
+├── ● Archive contents (22 entries)
+├── ● Extraction summary (temp 2 items)
+├── ● Ensure scripts executable (5 updated)
+├── ● Cleanup
+├── ● Initialize git repository (initialized)
+└── ● Finalize (project ready)
+
+Project ready.
+
+╭─────────────────────────────────────────────────────── Next steps ───────────────────────────────────────────────────────╮
+│                                                                                                                          │
+│  1. You're already in the project directory!                                                                             │
+│  2. Start using slash commands with your AI agent:                                                                       │
+│     2.1 /constitution - Establish project principles                                                                     │
+│     2.2 /specify - Create specifications                                                                                 │
+│     2.3 /plan - Create implementation plans                                                                              │
+│     2.4 /tasks - Generate actionable tasks                                                                               │
+│     2.5 /implement - Execute implementation                                                                              │
+│                                                                                                                          │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+[roy@lenovo Playground]$ 
