@@ -1,79 +1,101 @@
-# Step-by-Step Workflow
+# Step-by-Step Workflow (Revised for zen-tasker & gemini-cli)
 
-## Step 1: Prepare the Git Environment
+## 1. Sync and Branch
 
-First, make sure your local dev branch is up-to-date and create a new feature branch from it.
+Start from your main development branch, make sure it’s up to date, then create a new feature branch.
 
-### Repo url: https://github.com/rhodge-hash/zen-tasker/tree/dev
-
-```Bash
+```bash
 git checkout dev
 git pull origin dev
-git checkout -b feature/edit-task
+git checkout -b <feature-branch-name>
+# e.g., git checkout -b 003-edit-task-flow
 ```
 
-## Step 2: Specify the Feature
-Tell the AI agent what you're building.
+## 2. Specify the Feature with gemini-cli
 
-```Bash
-/specify
+Let the AI know what you want to build.
+
+```bash
+gemini specify
 ```
 
-Example User Input:
+Example prompt:
 ```
-Add the ability for a user to edit an existing task. The user should be able to double-click on a task's text to make it editable, press "Enter" or click outside the input field to save the changes.
-```
-
-## Step 3: Create the Plan
-Use the AI agent to create a technical plan.
-
-```Bash
-/plan
+Allow editing of tasks with double-click. Save edits on Enter or blur.
 ```
 
-Example User Input:
+## 3. Create a Technical Plan
 
-```
-Create a technical plan to add an edit feature to the Zen Tasker app. The plan should outline the necessary JavaScript changes to handle a double-click event on a list item's text, replace the text with an input field, and save the new value upon completion.
-```
+Ask gemini-cli to break down the steps.
 
-## Step 4: Generate the Tasks
-
-Have the AI agent break down the plan into specific tasks.
-
-```Bash
-/tasks
+```bash
+gemini plan
 ```
 
-Input:
+Example prompt:
 ```
-Generate a list of actionable tasks to implement the task editing feature based on the technical plan.
-```
-
-## Step 5: Implement the Code
-Have the AI agent write the code for the feature.
-
-```Bash
-/implement
+Create a technical plan to support task editing in the Zen Tasker app.
 ```
 
-Example User Input:
+## 4. Generate Implementation Tasks
 
+Get gemini-cli to generate granular tasks.
+
+```bash
+gemini tasks
 ```
-Implement the code to add the task editing functionality to the Zen Tasker app, following the specified tasks.
+
+Example prompt:
+```
+List all actionable steps to add task editing, based on the plan.
 ```
 
-## Step 6: Push the Code and Create a Pull Request
-After the AI agent has finished, you will have a new file with the implemented changes. Now you need to push these changes to GitHub and create a pull request.
+## 5. Implement the Feature
 
-```Bash
+Have gemini-cli generate the code.
+
+```bash
+gemini implement
+```
+
+Example prompt:
+```
+Implement the task editing feature as described in the plan and tasks.
+```
+
+## 6. Review, Test, and Commit
+
+Check the changes locally and test as needed. Then commit:
+
+```bash
 git add .
-git commit -m "feat: add ability to edit tasks"
-git push origin feature/edit-task
+git commit -m "feat: <short description of the feature>"
+# e.g., git commit -m "feat: add task editing"
 ```
 
-Once the push is complete, go to your GitHub repository and you will see an option to create a Pull Request from feature/edit-task to your dev branch. 
-When you open the pull request, your CI/CD workflow will automatically run to verify that the tests and builds pass.
+## 7. Push Your Branch
 
+Push the feature branch to GitHub:
 
-# Revise this workflow for gemini-cli usage.
+```bash
+git push origin <feature-branch-name>
+```
+
+## 8. Make Pull Requests
+
+- Open a PR from your feature branch to `dev` (or `main`, as appropriate).
+- Review and merge via the GitHub web interface.
+- Example: merge 003-edit-task-flow → dev, then dev → main/master as needed.
+
+## 9. CI/CD and Final Merge
+
+- Let GitHub Actions run to verify builds and tests.
+- After merging to `dev`, repeat the process to merge `dev` into `main/master` (if needed).
+
+---
+
+**Notes:**
+- Feature branches are typically named with incremental numbers or descriptive names (e.g., `002-add-the-ability`).
+- Merges usually go feature → dev → main/master.
+- Always review PRs on GitHub before merging.
+- Use gemini-cli for specs, plans, tasks, and code, but do PRs and merges via GitHub.
